@@ -58,7 +58,7 @@ export default function BasicTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {categories?.map((category) => (
+          {categories?.map((category, i) => (
             <TableRow
               key={category._id}
               sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
@@ -92,7 +92,7 @@ export default function BasicTable() {
                         variant="contained"
                         onClick={() => {
                           axios.delete("http://18.141.207.7:3002/category", {
-                            data: category,
+                            data: i,
                           });
                           handleClose();
                           setRender(true);
