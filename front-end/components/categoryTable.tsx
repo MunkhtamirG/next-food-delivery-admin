@@ -8,13 +8,9 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import Fade from "@mui/material/Fade";
 import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
-import { Category } from "@mui/icons-material";
 
 const style = {
   position: "absolute" as "absolute",
@@ -44,7 +40,7 @@ export default function BasicTable() {
     | null
   >();
   useEffect(() => {
-    axios.get("http://localhost:3001/category").then((res) => {
+    axios.get("http://18.141.207.7:3002/category").then((res) => {
       setCategories(res.data.data);
     });
   }, []);
@@ -95,7 +91,7 @@ export default function BasicTable() {
                         color="success"
                         variant="contained"
                         onClick={() => {
-                          axios.delete("http://localhost:3001/category", {
+                          axios.delete("http://18.141.207.7:3002/category", {
                             data: category,
                           });
                           handleClose();
