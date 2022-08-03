@@ -6,27 +6,14 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { useEffect, useState } from "react";
 import axios from "axios";
-import Box from "@mui/material/Box";
-import Modal from "@mui/material/Modal";
 import Button from "@mui/material/Button";
-
-const style = {
-  position: "absolute" as "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 250,
-  bgcolor: "background.paper",
-  border: "2px solid #000000",
-  boxShadow: 24,
-  p: 4,
-};
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteIcon from "@mui/icons-material/Delete";
+import { useRouter } from "next/router";
 
 export default function BasicTable({ categories }: any) {
-  const [render, setRender] = useState<boolean>(false);
-
+  const router = useRouter();
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
@@ -35,8 +22,8 @@ export default function BasicTable({ categories }: any) {
             <TableCell>Category</TableCell>
             <TableCell align="right">Index</TableCell>
             <TableCell align="right">Color</TableCell>
-            <TableCell align="right">Edit</TableCell>
-            <TableCell align="right">Delete</TableCell>
+            <TableCell align="right"></TableCell>
+            <TableCell align="right"></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -52,9 +39,14 @@ export default function BasicTable({ categories }: any) {
                 <TableCell align="right">{category._id}</TableCell>
                 <TableCell align="right">{category.color}</TableCell>
                 <TableCell align="right">
-                  <Button variant="outlined">Edit</Button>
+                  <Button
+                    href={`http://localhost:3000/category/edit/${category._id}`}
+                    variant="outlined"
+                  >
+                    {<EditIcon />}
+                  </Button>
                 </TableCell>
-                <TableCell align="right">
+                <TableCell align="left">
                   <Button
                     variant="contained"
                     color="error"
@@ -62,10 +54,10 @@ export default function BasicTable({ categories }: any) {
                       axios.delete("http://18.141.207.7:3002/category", {
                         data: category,
                       });
-                      setRender(true);
+                      router.push("/category");
                     }}
                   >
-                    Delete
+                    {<DeleteIcon />}
                   </Button>
                 </TableCell>
               </TableRow>
