@@ -12,10 +12,14 @@ import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useRouter } from "next/router";
 
+const header: {} = {
+  color: "white",
+};
+
 export default function BasicTable({ foods }: any) {
   const router = useRouter();
   return (
-    <TableContainer component={Paper}>
+    <TableContainer style={header}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>

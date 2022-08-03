@@ -2,9 +2,11 @@ import axios from "axios";
 import React from "react";
 
 export default function id({ category }) {
-  console.log(category);
-
-  return <div>Hello</div>;
+  return (
+    <div>
+      <h1>{category.name}</h1>
+    </div>
+  );
 }
 
 export async function getStaticPaths() {

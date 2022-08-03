@@ -4,11 +4,7 @@ import React from "react";
 import FoodTable from "../components/foodTable";
 
 export default function food({ foods }: any) {
-  return (
-    <Container>
-      <FoodTable foods={foods} />
-    </Container>
-  );
+  return <FoodTable foods={foods} />;
 }
 
 food.getInitialProps = async (ctx: any) => {
