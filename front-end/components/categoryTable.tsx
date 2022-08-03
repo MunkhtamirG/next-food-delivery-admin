@@ -25,10 +25,7 @@ const style = {
 };
 
 export default function BasicTable({ categories }: any) {
-  const [open, setOpen] = useState(false);
-  const [render, setRender] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const [render, setRender] = useState<boolean>(false);
 
   return (
     <TableContainer component={Paper}>
@@ -61,38 +58,15 @@ export default function BasicTable({ categories }: any) {
                   <Button
                     variant="contained"
                     color="error"
-                    onClick={handleOpen}
+                    onClick={() => {
+                      axios.delete("http://18.141.207.7:3002/category", {
+                        data: category,
+                      });
+                      setRender(true);
+                    }}
                   >
                     Delete
                   </Button>
-                  <Modal
-                    open={open}
-                    onClose={handleClose}
-                    aria-labelledby="modal-modal-title"
-                    aria-describedby="modal-modal-description"
-                  >
-                    <Box sx={style} color="red" textAlign="center">
-                      <h3>Delete?</h3>
-                      <div>
-                        <Button onClick={handleClose} color="error">
-                          Cancel
-                        </Button>
-                        <Button
-                          color="success"
-                          variant="contained"
-                          onClick={() => {
-                            axios.delete("http://18.141.207.7:3002/category", {
-                              data: category,
-                            });
-                            handleClose();
-                            setRender(true);
-                          }}
-                        >
-                          Confirm
-                        </Button>
-                      </div>
-                    </Box>
-                  </Modal>
                 </TableCell>
               </TableRow>
             )
