@@ -1,10 +1,17 @@
-import { Container } from "@mui/material";
+import { Button, Container } from "@mui/material";
 import axios from "axios";
 import React from "react";
 import FoodTable from "../components/foodTable";
 
 export default function food({ foods }: any) {
-  return <FoodTable foods={foods} />;
+  return (
+    <>
+      <Button href="/category" variant="contained" color="success">
+        Show Category Table
+      </Button>
+      <FoodTable foods={foods} />
+    </>
+  );
 }
 
 food.getInitialProps = async (ctx: any) => {
