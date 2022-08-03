@@ -5,12 +5,12 @@ import FoodTable from "../components/foodTable";
 
 export default function food({ foods }: any) {
   return (
-    <>
+    <div style={{ height: "100vh" }}>
       <Button href="/category" variant="contained" color="success">
         Show Category Table
       </Button>
       <FoodTable foods={foods} />
-    </>
+    </div>
   );
 }
 
