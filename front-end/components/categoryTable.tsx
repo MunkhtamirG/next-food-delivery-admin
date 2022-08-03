@@ -24,26 +24,11 @@ const style = {
   p: 4,
 };
 
-export default function BasicTable() {
+export default function BasicTable({ categories }: any) {
   const [open, setOpen] = useState(false);
   const [render, setRender] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const [categories, setCategories] = useState<
-    | [
-        {
-          name: string;
-          _id: number;
-          color: string;
-        }
-      ]
-    | null
-  >();
-  useEffect(() => {
-    axios.get("http://18.141.207.7:3002/category").then((res) => {
-      setCategories(res.data.data);
-    });
-  }, []);
 
   return (
     <TableContainer component={Paper}>
@@ -58,54 +43,60 @@ export default function BasicTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {categories?.map((category, i) => (
-            <TableRow
-              key={category._id}
-              sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {category.name}
-              </TableCell>
-              <TableCell align="right">{category._id}</TableCell>
-              <TableCell align="right">{category.color}</TableCell>
-              <TableCell align="right">
-                <Button variant="outlined">Edit</Button>
-              </TableCell>
-              <TableCell align="right">
-                <Button variant="contained" color="error" onClick={handleOpen}>
-                  Delete
-                </Button>
-                <Modal
-                  open={open}
-                  onClose={handleClose}
-                  aria-labelledby="modal-modal-title"
-                  aria-describedby="modal-modal-description"
-                >
-                  <Box sx={style} color="red" textAlign="center">
-                    <h3>Delete?</h3>
-                    <div>
-                      <Button onClick={handleClose} color="error">
-                        Cancel
-                      </Button>
-                      <Button
-                        color="success"
-                        variant="contained"
-                        onClick={() => {
-                          axios.delete("http://18.141.207.7:3002/category", {
-                            data: i,
-                          });
-                          handleClose();
-                          setRender(true);
-                        }}
-                      >
-                        Confirm
-                      </Button>
-                    </div>
-                  </Box>
-                </Modal>
-              </TableCell>
-            </TableRow>
-          ))}
+          {categories?.map(
+            (category: { _id: number; name: string; color: string }) => (
+              <TableRow
+                key={category._id}
+                sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+              >
+                <TableCell component="th" scope="row">
+                  {category.name}
+                </TableCell>
+                <TableCell align="right">{category._id}</TableCell>
+                <TableCell align="right">{category.color}</TableCell>
+                <TableCell align="right">
+                  <Button variant="outlined">Edit</Button>
+                </TableCell>
+                <TableCell align="right">
+                  <Button
+                    variant="contained"
+                    color="error"
+                    onClick={handleOpen}
+                  >
+                    Delete
+                  </Button>
+                  <Modal
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="modal-modal-title"
+                    aria-describedby="modal-modal-description"
+                  >
+                    <Box sx={style} color="red" textAlign="center">
+                      <h3>Delete?</h3>
+                      <div>
+                        <Button onClick={handleClose} color="error">
+                          Cancel
+                        </Button>
+                        <Button
+                          color="success"
+                          variant="contained"
+                          onClick={() => {
+                            axios.delete("http://18.141.207.7:3002/category", {
+                              data: category,
+                            });
+                            handleClose();
+                            setRender(true);
+                          }}
+                        >
+                          Confirm
+                        </Button>
+                      </div>
+                    </Box>
+                  </Modal>
+                </TableCell>
+              </TableRow>
+            )
+          )}
         </TableBody>
       </Table>
     </TableContainer>
