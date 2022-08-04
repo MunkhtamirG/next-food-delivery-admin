@@ -28,6 +28,9 @@ export default function id({ food }) {
   }
   return (
     <div style={style}>
+      <Button href="/food" variant="contained" color="success">
+        Back
+      </Button>
       <h1>Edit Food</h1>
       <FormGroup
         component="form"

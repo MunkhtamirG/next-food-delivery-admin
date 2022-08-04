@@ -1,9 +1,13 @@
 import axios from "axios";
 import React from "react";
+import { Button } from "@mui/material";
 
 export default function id({ category }) {
   return (
     <div>
+      <Button href="/category" variant="contained" color="success">
+        Back
+      </Button>
       <h1>{category.name}</h1>
     </div>
   );
