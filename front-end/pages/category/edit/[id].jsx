@@ -1,14 +1,64 @@
 import axios from "axios";
 import React from "react";
-import { Button } from "@mui/material";
+import {
+  Button,
+  FormGroup,
+  TextField,
+  InputLabel,
+  Select,
+} from "@mui/material";
 
 export default function id({ category }) {
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "100vh",
+      }}
+    >
       <Button href="/category" variant="contained" color="success">
         Back
       </Button>
-      <h1>{category.name}</h1>
+      <FormGroup
+        component="form"
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "15px",
+          "& .MuiTextField-root": { width: "50ch" },
+        }}
+        spacing={2}
+        noValidate
+        autoComplete="off"
+      >
+        <TextField
+          label="Name"
+          variant="standard"
+          color="success"
+          defaultValue={category[0].name}
+          focused
+        />
+        <TextField
+          label="ID"
+          variant="standard"
+          color="success"
+          defaultValue={category[0]._id}
+          focused
+        />
+        <TextField
+          label="Color"
+          variant="standard"
+          color="success"
+          defaultValue={category[0].color}
+          focused
+        />
+        <Button variant="contained" color="success" type="submit">
+          Хадгалах
+        </Button>
+      </FormGroup>
     </div>
   );
 }
