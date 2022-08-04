@@ -1,14 +1,28 @@
 import axios from "axios";
 import React from "react";
-import {
-  Button,
-  FormGroup,
-  TextField,
-  InputLabel,
-  Select,
-} from "@mui/material";
+import { useRouter } from "next/router";
+import { Button, Alert, TextField, Box, Stack, Snackbar } from "@mui/material";
 
 export default function id({ category }) {
+  const [open, setOpen] = React.useState(false);
+
+  function submitHandler(e) {
+    axios.put("http://18.141.207.7:3002/category", {
+      name: e.target.name.value,
+      color: e.target.color.value,
+      _id: e.target.id.value,
+    });
+    setOpen(true);
+  }
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
+
   return (
     <div
       style={{
@@ -22,7 +36,18 @@ export default function id({ category }) {
       <Button href="/category" variant="contained" color="success">
         Back
       </Button>
-      <FormGroup
+      <Stack sx={{ width: "100%" }} spacing={2}>
+        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+          <Alert
+            onClose={handleClose}
+            severity="success"
+            sx={{ width: "100%" }}
+          >
+            Амжилттай хадгалагдлаа!
+          </Alert>
+        </Snackbar>
+      </Stack>
+      <Box
         component="form"
         sx={{
           display: "flex",
@@ -33,9 +58,11 @@ export default function id({ category }) {
         spacing={2}
         noValidate
         autoComplete="off"
+        onSubmit={submitHandler}
       >
         <TextField
           label="Name"
+          name="name"
           variant="standard"
           color="success"
           defaultValue={category[0].name}
@@ -44,13 +71,16 @@ export default function id({ category }) {
         <TextField
           label="ID"
           variant="standard"
+          name="id"
           color="success"
           defaultValue={category[0]._id}
           focused
+          InputProps={{ readOnly: true }}
         />
         <TextField
           label="Color"
           variant="standard"
+          name="color"
           color="success"
           defaultValue={category[0].color}
           focused
@@ -58,7 +88,7 @@ export default function id({ category }) {
         <Button variant="contained" color="success" type="submit">
           Хадгалах
         </Button>
-      </FormGroup>
+      </Box>
     </div>
   );
 }
