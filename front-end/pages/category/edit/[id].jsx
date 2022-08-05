@@ -5,14 +5,17 @@ import { Button, Alert, TextField, Box, Stack, Snackbar } from "@mui/material";
 
 export default function id({ category }) {
   const [open, setOpen] = React.useState(false);
+  let router = useRouter();
 
   function submitHandler(e) {
+    e.preventDefault();
     axios.put("http://18.141.207.7:3002/category", {
       name: e.target.name.value,
       color: e.target.color.value,
       _id: e.target.id.value,
     });
     setOpen(true);
+    router.push("/category");
   }
 
   const handleClose = (event, reason) => {
