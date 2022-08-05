@@ -13,7 +13,7 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import { useRouter } from "next/router";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 
-export default function BasicTable({ categories }: any) {
+export default function CategoryTable({ categories }: any) {
   const [render, setRender] = React.useState(true);
   const router = useRouter();
 

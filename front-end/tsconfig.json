@@ -20,7 +20,10 @@
     "**/*.ts",
     "**/*.tsx",
     "pages/category/edit/[id].jsx",
-    "pages/food/add.jsx"
+    "pages/food/add.jsx",
+    "pages/_app.jsx",
+    "components/Layout.jsx",
+    "components/Navbar.jsx"
   ],
   "exclude": ["node_modules"]
 }

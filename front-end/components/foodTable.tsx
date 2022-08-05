@@ -5,7 +5,6 @@ import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
 import axios from "axios";
 import Button from "@mui/material/Button";
 import EditIcon from "@mui/icons-material/Edit";
@@ -17,7 +16,7 @@ const header: {} = {
   color: "white",
 };
 
-export default function BasicTable({ foods, categories }: any) {
+export default function FoodTable({ foods, categories }: any) {
   const [render, setRender] = React.useState(true);
   const router = useRouter();
   return (

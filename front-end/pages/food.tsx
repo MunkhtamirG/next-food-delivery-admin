@@ -1,14 +1,11 @@
 import { Button, Container } from "@mui/material";
 import axios from "axios";
 import React from "react";
-import FoodTable from "../components/foodTable";
+import FoodTable from "../components/FoodTable";
 
 export default function food({ foods, categories }: any) {
   return (
-    <div style={{ height: "100vh" }}>
-      <Button href="/category" variant="contained" color="success">
-        Show Category Table
-      </Button>
+    <div>
       <FoodTable foods={foods} categories={categories} />
     </div>
   );
