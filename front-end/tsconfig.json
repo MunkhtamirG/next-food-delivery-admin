@@ -19,7 +19,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "pages/category/edit/[id].jsx"
+    "pages/category/edit/[id].jsx",
+    "pages/food/add.jsx"
   ],
   "exclude": ["node_modules"]
 }
