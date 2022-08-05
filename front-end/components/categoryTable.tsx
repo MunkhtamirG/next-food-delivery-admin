@@ -75,12 +75,12 @@ export default function BasicTable({ categories }: any) {
         <Button
           variant="contained"
           color="success"
-          style={{ width: "20vw" }}
+          style={{ width: "30vw" }}
           onClick={() => {
             router.push("/category/add");
           }}
         >
-          <AddCircleIcon /> Add Food
+          <AddCircleIcon /> Add Category
         </Button>
       </div>
     </div>
