@@ -11,12 +11,13 @@ import Button from "@mui/material/Button";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useRouter } from "next/router";
+import category from "../pages/category";
 
 const header: {} = {
   color: "white",
 };
 
-export default function BasicTable({ foods }: any) {
+export default function BasicTable({ foods, categories }: any) {
   const router = useRouter();
   return (
     <TableContainer style={header}>
@@ -68,13 +69,17 @@ export default function BasicTable({ foods }: any) {
                 <TableCell align="right">{food.tumb_img}</TableCell>
                 <TableCell align="right">{food.ingredients}</TableCell>
                 <TableCell align="right">
-                  {food.category_id === 1
-                    ? "Үндсэн хоол"
-                    : food.category_id === 2
-                    ? "Салад ба зууш"
-                    : food.category_id === 3
-                    ? "Амттан"
-                    : "Хямдралтай"}
+                  {categories.map(
+                    (category: {
+                      _id: number;
+                      name: string;
+                      color: string;
+                    }) => {
+                      if (category._id == food.category_id) {
+                        return category.name;
+                      }
+                    }
+                  )}
                 </TableCell>
                 <TableCell align="right">
                   <Button
@@ -92,7 +97,7 @@ export default function BasicTable({ foods }: any) {
                       axios.delete("http://18.141.207.7:3002/food", {
                         data: food,
                       });
-                      router.push("/category");
+                      router.push("/food");
                     }}
                   >
                     {<DeleteIcon />}

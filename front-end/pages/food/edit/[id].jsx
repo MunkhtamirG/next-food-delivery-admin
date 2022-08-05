@@ -22,7 +22,7 @@ const style = {
   height: "100vh",
 };
 
-export default function id({ food }) {
+export default function id({ food, categories }) {
   const [open, setOpen] = React.useState(false);
   let router = useRouter();
   async function submitHandler(e) {
@@ -167,12 +167,15 @@ export default function id({ food }) {
           id="demo-simple-select"
           label="Age"
           name="category"
-          defaultValue={1}
+          defaultValue={categories[0]._id}
         >
-          <MenuItem value={1}>Үндсэн хоол</MenuItem>
-          <MenuItem value={2}>Салад ба зууш</MenuItem>
-          <MenuItem value={3}>Амттан</MenuItem>
-          <MenuItem value={4}>Хямдралтай</MenuItem>
+          {categories.map((category) => {
+            return (
+              <MenuItem value={category._id} key={category._id}>
+                {category.name}
+              </MenuItem>
+            );
+          })}
         </Select>
         <Button variant="contained" color="success" type="submit">
           Хадгалах
@@ -196,10 +199,11 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const res = await axios.get(`http://18.141.207.7:3002/food/${params.id}`);
-  console.log(res.data.data);
+  const categories = await axios.get(`http://18.141.207.7:3002/category`);
   return {
     props: {
       food: res.data.data,
+      categories: categories.data.data,
     },
   };
 }
