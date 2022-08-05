@@ -18,6 +18,7 @@ const header: {} = {
 };
 
 export default function BasicTable({ foods, categories }: any) {
+  const [render, setRender] = React.useState(true);
   const router = useRouter();
   return (
     <div>
@@ -99,6 +100,7 @@ export default function BasicTable({ foods, categories }: any) {
                           data: food,
                         });
                         router.push("/food");
+                        setRender(false);
                       }}
                     >
                       {<DeleteIcon />}

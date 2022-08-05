@@ -14,7 +14,9 @@ import { useRouter } from "next/router";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 
 export default function BasicTable({ categories }: any) {
+  const [render, setRender] = React.useState(true);
   const router = useRouter();
+
   return (
     <div>
       <TableContainer component={Paper}>
@@ -57,6 +59,7 @@ export default function BasicTable({ categories }: any) {
                           data: category,
                         });
                         router.push("/category");
+                        setRender(false);
                       }}
                     >
                       {<DeleteIcon />}
