@@ -75,7 +75,7 @@ export default function CategoryTable({ categories }: any) {
         <Button
           variant="contained"
           color="success"
-          style={{ width: "30vw" }}
+          style={{ width: "100%" }}
           onClick={() => {
             router.push("/category/add");
           }}
