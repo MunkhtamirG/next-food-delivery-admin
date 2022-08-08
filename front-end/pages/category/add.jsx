@@ -1,16 +1,6 @@
 import axios from "axios";
 import * as React from "react";
-import {
-  Box,
-  TextField,
-  Select,
-  MenuItem,
-  InputLabel,
-  Button,
-  Stack,
-  Snackbar,
-  Alert,
-} from "@mui/material";
+import { Box, TextField, Button, Stack, Snackbar, Alert } from "@mui/material";
 import { useRouter } from "next/router";
 
 export default function add() {
@@ -42,10 +32,10 @@ export default function add() {
         height: "100vh",
       }}
     >
-      <Button href="/food" variant="contained" color="success">
+      <Button href="/category" variant="contained" color="success">
         Back
       </Button>
-      <h1>Add Food</h1>
+      <h1>Add Categories</h1>
       <Stack sx={{ width: "100%" }} spacing={2}>
         <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
           <Alert
