@@ -15,12 +15,15 @@ const Home: NextPage = () => {
         <h1 className={styles.title}>Welcome to Food Delivery</h1>
 
         <p className={styles.description}>
-          Get started by editing{" "}
-          <a className={styles.code} href="/category">
+          Get started by editing <br />
+          <a className={styles.code} href="/category" style={{ margin: "5px" }}>
             Category
           </a>
-          <a className={styles.code} href="/food">
+          <a className={styles.code} href="/food" style={{ margin: "5px" }}>
             Food
+          </a>
+          <a className={styles.code} href="/users" style={{ margin: "5px" }}>
+            Users
           </a>
         </p>
       </main>

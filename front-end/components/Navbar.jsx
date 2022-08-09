@@ -8,7 +8,7 @@ import Button from "@mui/material/Button";
 import LunchDiningIcon from "@mui/icons-material/LunchDining";
 import { useRouter } from "next/router";
 
-const pages = ["Categories", "Foods"];
+const pages = ["Categories", "Foods", "Users"];
 
 const Navbar = () => {
   const router = useRouter();
@@ -44,8 +44,10 @@ const Navbar = () => {
                 onClick={() => {
                   if (page == "Categories") {
                     router.push("/category");
-                  } else {
+                  } else if (page == "Foods") {
                     router.push("/food");
+                  } else {
+                    router.push("/users");
                   }
                 }}
                 sx={{ my: 2, color: "white", display: "block" }}

@@ -1,7 +1,7 @@
 import { Button, Container } from "@mui/material";
 import axios from "axios";
 import React from "react";
-import CategoryTable from "../components/CategoryTable";
+import CategoryTable from "../components/categoryTable";
 
 export default function category({ categories }: any) {
   return (
