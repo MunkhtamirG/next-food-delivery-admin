@@ -25,6 +25,9 @@ const Home: NextPage = () => {
           <a className={styles.code} href="/users" style={{ margin: "5px" }}>
             Users
           </a>
+          <a className={styles.code} href="/roles" style={{ margin: "5px" }}>
+            Roles
+          </a>
         </p>
       </main>
     </div>

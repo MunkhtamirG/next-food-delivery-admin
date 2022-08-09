@@ -8,7 +8,7 @@ import Button from "@mui/material/Button";
 import LunchDiningIcon from "@mui/icons-material/LunchDining";
 import { useRouter } from "next/router";
 
-const pages = ["Categories", "Foods", "Users"];
+const pages = ["Categories", "Foods", "Users", "Roles"];
 
 const Navbar = () => {
   const router = useRouter();
@@ -46,6 +46,8 @@ const Navbar = () => {
                     router.push("/category");
                   } else if (page == "Foods") {
                     router.push("/food");
+                  } else if (page == "Roles") {
+                    router.push("/roles");
                   } else {
                     router.push("/users");
                   }
