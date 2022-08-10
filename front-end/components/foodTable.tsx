@@ -27,17 +27,71 @@ export default function FoodTable({ foods, categories }: any) {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>discount</TableCell>
-              <TableCell align="right">sales</TableCell>
-              <TableCell align="right">ID</TableCell>
-              <TableCell align="right">name</TableCell>
-              <TableCell align="right">price</TableCell>
-              <TableCell align="right">portion</TableCell>
-              <TableCell align="right">stock</TableCell>
-              <TableCell align="right">image</TableCell>
-              <TableCell align="right">tumb_img</TableCell>
-              <TableCell align="right">ingredients</TableCell>
-              <TableCell align="right">category</TableCell>
+              <TableCell
+                style={{ fontWeight: "bold", textTransform: "uppercase" }}
+              >
+                discount
+              </TableCell>
+              <TableCell
+                align="right"
+                style={{ fontWeight: "bold", textTransform: "uppercase" }}
+              >
+                sales
+              </TableCell>
+              <TableCell
+                align="right"
+                style={{ fontWeight: "bold", textTransform: "uppercase" }}
+              >
+                ID
+              </TableCell>
+              <TableCell
+                align="right"
+                style={{ fontWeight: "bold", textTransform: "uppercase" }}
+              >
+                name
+              </TableCell>
+              <TableCell
+                align="right"
+                style={{ fontWeight: "bold", textTransform: "uppercase" }}
+              >
+                price
+              </TableCell>
+              <TableCell
+                align="right"
+                style={{ fontWeight: "bold", textTransform: "uppercase" }}
+              >
+                portion
+              </TableCell>
+              <TableCell
+                align="right"
+                style={{ fontWeight: "bold", textTransform: "uppercase" }}
+              >
+                stock
+              </TableCell>
+              <TableCell
+                align="right"
+                style={{ fontWeight: "bold", textTransform: "uppercase" }}
+              >
+                image
+              </TableCell>
+              <TableCell
+                align="right"
+                style={{ fontWeight: "bold", textTransform: "uppercase" }}
+              >
+                tumb_img
+              </TableCell>
+              <TableCell
+                align="right"
+                style={{ fontWeight: "bold", textTransform: "uppercase" }}
+              >
+                ingredients
+              </TableCell>
+              <TableCell
+                align="right"
+                style={{ fontWeight: "bold", textTransform: "uppercase" }}
+              >
+                category
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

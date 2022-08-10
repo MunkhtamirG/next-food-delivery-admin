@@ -23,11 +23,31 @@ export default function CategoryTable({ categories }: any) {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>Category</TableCell>
-              <TableCell align="right">Index</TableCell>
-              <TableCell align="right">Color</TableCell>
-              <TableCell align="right"></TableCell>
-              <TableCell align="right"></TableCell>
+              <TableCell
+                style={{ fontWeight: "bold", textTransform: "uppercase" }}
+              >
+                Category
+              </TableCell>
+              <TableCell
+                align="right"
+                style={{ fontWeight: "bold", textTransform: "uppercase" }}
+              >
+                Index
+              </TableCell>
+              <TableCell
+                align="right"
+                style={{ fontWeight: "bold", textTransform: "uppercase" }}
+              >
+                Color
+              </TableCell>
+              <TableCell
+                align="right"
+                style={{ fontWeight: "bold", textTransform: "uppercase" }}
+              ></TableCell>
+              <TableCell
+                align="right"
+                style={{ fontWeight: "bold", textTransform: "uppercase" }}
+              ></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

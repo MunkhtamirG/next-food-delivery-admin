@@ -25,9 +25,23 @@ export default function RolesTable({ roles }: any) {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>ID</TableCell>
-              <TableCell align="right">Role Name</TableCell>
-              <TableCell align="right">Role Description</TableCell>
+              <TableCell
+                style={{ fontWeight: "bold", textTransform: "uppercase" }}
+              >
+                ID
+              </TableCell>
+              <TableCell
+                align="right"
+                style={{ fontWeight: "bold", textTransform: "uppercase" }}
+              >
+                Role Name
+              </TableCell>
+              <TableCell
+                align="right"
+                style={{ fontWeight: "bold", textTransform: "uppercase" }}
+              >
+                Role Description
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>

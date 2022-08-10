@@ -25,13 +25,47 @@ export default function UserTable({ users }: any) {
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell>ID</TableCell>
-              <TableCell align="right">First Name</TableCell>
-              <TableCell align="right">Last Name</TableCell>
-              <TableCell align="right">Email</TableCell>
-              <TableCell align="right">Address</TableCell>
-              <TableCell align="right">Phone</TableCell>
-              <TableCell align="right">Role</TableCell>
+              <TableCell
+                style={{ fontWeight: "bold", textTransform: "uppercase" }}
+              >
+                ID
+              </TableCell>
+              <TableCell
+                align="right"
+                style={{ fontWeight: "bold", textTransform: "uppercase" }}
+              >
+                First Name
+              </TableCell>
+              <TableCell
+                align="right"
+                style={{ fontWeight: "bold", textTransform: "uppercase" }}
+              >
+                Last Name
+              </TableCell>
+              <TableCell
+                align="right"
+                style={{ fontWeight: "bold", textTransform: "uppercase" }}
+              >
+                Email
+              </TableCell>
+              <TableCell
+                align="right"
+                style={{ fontWeight: "bold", textTransform: "uppercase" }}
+              >
+                Address
+              </TableCell>
+              <TableCell
+                align="right"
+                style={{ fontWeight: "bold", textTransform: "uppercase" }}
+              >
+                Phone
+              </TableCell>
+              <TableCell
+                align="right"
+                style={{ fontWeight: "bold", textTransform: "uppercase" }}
+              >
+                Role
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
