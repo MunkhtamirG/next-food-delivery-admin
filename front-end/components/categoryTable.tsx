@@ -19,7 +19,7 @@ export default function CategoryTable({ categories }: any) {
 
   return (
     <div>
-      <TableContainer component={Paper}>
+      <TableContainer>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
             <TableRow>

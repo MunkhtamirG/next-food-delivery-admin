@@ -14,6 +14,8 @@ import AddCircleIcon from "@mui/icons-material/AddCircle";
 
 const header: {} = {
   color: "white",
+  margin: "auto",
+  width: "auto",
 };
 
 export default function FoodTable({ foods, categories }: any) {
@@ -111,11 +113,11 @@ export default function FoodTable({ foods, categories }: any) {
           </TableBody>
         </Table>
       </TableContainer>
-      <div style={{ width: "100vw", textAlign: "center" }}>
+      <div>
         <Button
           variant="contained"
           color="success"
-          style={{ width: "20vw" }}
+          style={{ width: "100%" }}
           onClick={() => {
             router.push("/food/add");
           }}

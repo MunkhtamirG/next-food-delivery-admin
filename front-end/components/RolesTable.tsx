@@ -20,7 +20,7 @@ export default function RolesTable({ roles }: any) {
   const [render, setRender] = React.useState(true);
   const router = useRouter();
   return (
-    <div style={{ margin: "auto", width: "80vw" }}>
+    <div style={{ margin: "auto", width: "auto" }}>
       <TableContainer style={header}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
