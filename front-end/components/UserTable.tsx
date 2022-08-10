@@ -20,7 +20,7 @@ export default function UserTable({ users }: any) {
   const [render, setRender] = React.useState(true);
   const router = useRouter();
   return (
-    <div>
+    <div style={{ margin: "auto", width: "80vw" }}>
       <TableContainer style={header}>
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
           <TableHead>
@@ -88,11 +88,11 @@ export default function UserTable({ users }: any) {
           </TableBody>
         </Table>
       </TableContainer>
-      <div style={{ width: "100vw", textAlign: "center" }}>
+      <div>
         <Button
           variant="contained"
           color="success"
-          style={{ width: "20vw" }}
+          style={{ width: "100%" }}
           onClick={() => {
             router.push("/users/add");
           }}
