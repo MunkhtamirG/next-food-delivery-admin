@@ -43,12 +43,7 @@ export default function LoginPage({ setUser }) {
 
   function registerHandler(e) {
     e.preventDefault();
-    console.log(e.target.firstName.value);
-    console.log(e.target.lastName.value);
-    console.log(e.target.email.value);
-    console.log(e.target.address.value);
-    console.log(e.target.phone.value);
-    console.log(e.target.password.value);
+
     axios
       .post("http://18.141.207.7:3002/users/register", {
         firstName: e.target.firstName.value,
@@ -245,6 +240,16 @@ export default function LoginPage({ setUser }) {
                 Бүртгүүлэх
               </Button>
             </Box>
+            <Button
+              variant="contained"
+              color="success"
+              style={{ width: "100%", marginTop: "15px" }}
+              onClick={() => {
+                setRegister(false);
+              }}
+            >
+              Нэвтрэх
+            </Button>
           </div>
         </div>
       )}
