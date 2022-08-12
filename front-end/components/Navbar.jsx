@@ -8,9 +8,9 @@ import Button from "@mui/material/Button";
 import LunchDiningIcon from "@mui/icons-material/LunchDining";
 import { useRouter } from "next/router";
 
-const pages = ["Categories", "Foods", "Users", "Roles"];
+export default function Navbar() {
+  const pages = ["Categories", "Foods", "Users", "Roles"];
 
-const Navbar = () => {
   const router = useRouter();
   return (
     <AppBar position="static">
@@ -81,5 +81,4 @@ const Navbar = () => {
       </Container>
     </AppBar>
   );
-};
-export default Navbar;
+}

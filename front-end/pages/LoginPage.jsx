@@ -19,7 +19,7 @@ export default function LoginPage({ setUser }) {
   function submitHandler(e) {
     e.preventDefault();
 
-    let response = axios
+    axios
       .post("http://18.141.207.7:3002/users/login", {
         email: e.target.email.value,
         password: e.target.password.value,
@@ -34,7 +34,6 @@ export default function LoginPage({ setUser }) {
               token: res.data.token,
             })
           );
-        } else {
         }
       })
       .catch(setOpen(true));
