@@ -19,7 +19,7 @@ export default function LoginPage({ setUser }) {
   function submitHandler(e) {
     e.preventDefault();
 
-    axios
+    let response = axios
       .post("http://18.141.207.7:3002/users/login", {
         email: e.target.email.value,
         password: e.target.password.value,
@@ -35,10 +35,9 @@ export default function LoginPage({ setUser }) {
             })
           );
         } else {
-          setOpen(true);
-          console.log(res);
         }
-      });
+      })
+      .catch(setOpen(true));
   }
 
   function registerHandler(e) {
@@ -98,8 +97,6 @@ export default function LoginPage({ setUser }) {
                 "& .MuiTextField-root": { width: "50ch" },
               }}
               spacing={2}
-              noValidate
-              autoComplete="off"
               onSubmit={submitHandler}
             >
               <TextField
@@ -175,8 +172,6 @@ export default function LoginPage({ setUser }) {
                 "& .MuiTextField-root": { width: "50ch" },
               }}
               spacing={2}
-              noValidate
-              autoComplete="off"
               onSubmit={registerHandler}
             >
               <TextField
@@ -222,11 +217,11 @@ export default function LoginPage({ setUser }) {
                 type="number"
               />
               <TextField
+                required
                 label="Password"
                 variant="standard"
                 color="success"
                 name="password"
-                required
                 focused
                 type="password"
               />
