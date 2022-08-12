@@ -37,26 +37,45 @@ const Navbar = () => {
             Food Delivery
           </Typography>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={() => {
-                  if (page == "Categories") {
-                    router.push("/category");
-                  } else if (page == "Foods") {
-                    router.push("/food");
-                  } else if (page == "Roles") {
-                    router.push("/roles");
-                  } else {
-                    router.push("/users");
-                  }
-                }}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page}
-              </Button>
-            ))}
+          <Box
+            sx={{
+              flexGrow: 1,
+              display: { xs: "none", md: "flex" },
+              justifyContent: "space-between",
+            }}
+          >
+            <div style={{ display: "flex" }}>
+              {pages.map((page) => (
+                <Button
+                  key={page}
+                  onClick={() => {
+                    if (page == "Categories") {
+                      router.push("/category");
+                    } else if (page == "Foods") {
+                      router.push("/food");
+                    } else if (page == "Roles") {
+                      router.push("/roles");
+                    } else {
+                      router.push("/users");
+                    }
+                  }}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  {page}
+                </Button>
+              ))}
+            </div>
+            <Button
+              variant="contained"
+              color="warning"
+              style={{ color: "white", margin: "5px" }}
+              onClick={() => {
+                window.localStorage.removeItem("user");
+                window.location.reload();
+              }}
+            >
+              Log Out
+            </Button>
           </Box>
         </Toolbar>
       </Container>

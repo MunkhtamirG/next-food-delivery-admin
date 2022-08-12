@@ -29,7 +29,7 @@ export default function add() {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        height: "100vh",
+        height: "100%",
       }}
     >
       <Button href="/category" variant="contained" color="success">

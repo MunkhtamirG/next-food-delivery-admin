@@ -16,7 +16,7 @@ const header: {} = {
   color: "white",
 };
 
-export default function UserTable({ users }: any) {
+export default function UserTable({ users, roles }: any) {
   const [render, setRender] = React.useState(true);
   const router = useRouter();
   return (
@@ -91,7 +91,22 @@ export default function UserTable({ users }: any) {
                   <TableCell align="right">{user.email}</TableCell>
                   <TableCell align="right">{user.address}</TableCell>
                   <TableCell align="right">{user.phone}</TableCell>
-                  <TableCell align="right">{user.role_id}</TableCell>
+                  <TableCell
+                    align="right"
+                    style={{ textTransform: "uppercase", fontWeight: "bold" }}
+                  >
+                    {roles.map(
+                      (role: {
+                        id: number;
+                        role_name: string;
+                        role_description: string;
+                      }) => {
+                        if (user.role_id === role.id) {
+                          return role.role_name;
+                        }
+                      }
+                    )}
+                  </TableCell>
 
                   <TableCell align="right">
                     <Button

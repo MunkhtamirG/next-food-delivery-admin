@@ -19,7 +19,7 @@ const style = {
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
-  height: "100vh",
+  height: "100%",
 };
 
 export default function id({ users, roles }) {
