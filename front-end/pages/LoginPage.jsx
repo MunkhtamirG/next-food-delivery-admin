@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Button, Stack, Snackbar, Alert, Box, TextField } from "@mui/material";
 import axios from "axios";
-import { useRouter } from "next/router";
 
 export default function LoginPage({ setUser }) {
   const [open, setOpen] = React.useState(false);
@@ -26,7 +25,7 @@ export default function LoginPage({ setUser }) {
       })
       .then((res) => {
         if (res.status === 200) {
-          setUser(res.data.data.email);
+          setUser(res.data.data);
           window.localStorage.setItem(
             "user",
             JSON.stringify({

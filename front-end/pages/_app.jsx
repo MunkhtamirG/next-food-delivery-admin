@@ -2,7 +2,6 @@ import "../styles/globals.css";
 import Layout from "../components/Layout";
 import { useEffect, useState } from "react";
 import LoginPage from "./LoginPage";
-import Register from "./register";
 
 function MyApp({ Component, pageProps }) {
   const [user, setUser] = useState();
