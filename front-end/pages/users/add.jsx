@@ -18,14 +18,16 @@ export default function add({ roles }) {
   const router = useRouter();
   function submitHandler(e) {
     e.preventDefault();
-    axios.post("http://18.141.207.7:3002/users", {
-      firstName: e.target.firstName.value,
-      lastName: e.target.lastName.value,
-      email: e.target.email.value,
-      address: e.target.address.value,
-      phone: +e.target.phone.value,
-      role_id: +e.target.role.value,
-    });
+    if (e.target.password.value === e.target.password1.value) {
+      axios.post("http://18.141.207.7:3002/users/register", {
+        firstName: e.target.firstName.value,
+        lastName: e.target.lastName.value,
+        email: e.target.email.value,
+        address: e.target.address.value,
+        phone: e.target.phone.value,
+        password: e.target.password.value,
+      });
+    }
     router.push("/users");
     setOpen(true);
   }
@@ -70,7 +72,6 @@ export default function add({ roles }) {
           "& .MuiTextField-root": { width: "50ch" },
         }}
         spacing={2}
-        noValidate
         autoComplete="off"
         onSubmit={submitHandler}
       >
@@ -80,6 +81,7 @@ export default function add({ roles }) {
           color="success"
           name="firstName"
           focused
+          required
         />
         <TextField
           label="Last Name"
@@ -87,14 +89,16 @@ export default function add({ roles }) {
           color="success"
           name="lastName"
           focused
+          required
         />
-
         <TextField
           label="Email"
           variant="standard"
           color="success"
           name="email"
           focused
+          required
+          type="email"
         />
         <TextField
           label="Address"
@@ -102,6 +106,7 @@ export default function add({ roles }) {
           color="success"
           name="address"
           focused
+          required
         />
         <TextField
           label="Phone"
@@ -110,23 +115,26 @@ export default function add({ roles }) {
           name="phone"
           focused
           type="number"
+          required
         />
-        <InputLabel id="demo-simple-select-label">Role</InputLabel>
-        <Select
-          labelId="demo-simple-select-label"
-          id="demo-simple-select"
-          label="Age"
-          name="role"
-          defaultValue={roles[0].id}
-        >
-          {roles.map((role) => {
-            return (
-              <MenuItem value={role.id} key={role.id}>
-                {role.role_name}
-              </MenuItem>
-            );
-          })}
-        </Select>
+        <TextField
+          label="Password"
+          variant="standard"
+          color="success"
+          name="password"
+          focused
+          required
+          type="password"
+        />
+        <TextField
+          label="Password again"
+          variant="standard"
+          color="success"
+          name="password1"
+          focused
+          required
+          type="password"
+        />
         <Button variant="contained" color="success" type="submit">
           Хадгалах
         </Button>

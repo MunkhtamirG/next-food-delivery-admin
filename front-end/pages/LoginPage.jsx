@@ -6,6 +6,7 @@ export default function LoginPage({ setUser }) {
   const [open, setOpen] = React.useState(false);
   const [openSuccess, setOpenSuccess] = React.useState(false);
   const [register, setRegister] = useState(false);
+  const [alertMsg, setAlertMsg] = useState();
 
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
@@ -35,7 +36,16 @@ export default function LoginPage({ setUser }) {
           );
         }
       })
-      .catch(setOpen(true));
+      .catch((err) => {
+        if (err.response.status === 400) {
+          setAlertMsg("Бүртгэлгүй хэрэглэгч байна. Бүртгүүлнэ үү!");
+        } else if (err.response.status === 401) {
+          setAlertMsg("Нууц үг эсвэл емайл хаяг буруу байна!");
+        } else {
+          setAlertMsg("Амжилттай нэвтэрлээ!");
+        }
+        setOpen(true);
+      });
   }
 
   function registerHandler(e) {
@@ -80,7 +90,7 @@ export default function LoginPage({ setUser }) {
                 severity="error"
                 sx={{ width: "100%" }}
               >
-                Нууц үг эсвэл емайл хаяг буруу байна!
+                {alertMsg}
               </Alert>
             </Snackbar>
           </Stack>
@@ -94,6 +104,7 @@ export default function LoginPage({ setUser }) {
                 gap: "15px",
                 "& .MuiTextField-root": { width: "50ch" },
               }}
+              defaultValue={""}
               spacing={2}
               onSubmit={submitHandler}
             >
@@ -169,6 +180,7 @@ export default function LoginPage({ setUser }) {
                 gap: "15px",
                 "& .MuiTextField-root": { width: "50ch" },
               }}
+              defaultValue={""}
               spacing={2}
               onSubmit={registerHandler}
             >
