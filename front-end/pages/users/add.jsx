@@ -1,19 +1,9 @@
 import axios from "axios";
 import * as React from "react";
-import {
-  Box,
-  TextField,
-  Select,
-  MenuItem,
-  InputLabel,
-  Button,
-  Stack,
-  Snackbar,
-  Alert,
-} from "@mui/material";
+import { Box, TextField, Button, Stack, Snackbar, Alert } from "@mui/material";
 import { useRouter } from "next/router";
 
-export default function add({ roles }) {
+export default function add() {
   const [open, setOpen] = React.useState(false);
   const router = useRouter();
   function submitHandler(e) {
@@ -141,13 +131,4 @@ export default function add({ roles }) {
       </Box>
     </div>
   );
-}
-
-export async function getStaticProps({ params }) {
-  const roles = await axios.get(`http://18.141.207.7:3002/roles`);
-  return {
-    props: {
-      roles: roles.data.data,
-    },
-  };
 }
