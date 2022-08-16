@@ -15,7 +15,7 @@ import AddCircleIcon from "@mui/icons-material/AddCircle";
 const header: {} = {
   color: "white",
   margin: "auto",
-  width: "auto",
+  width: "100vw",
 };
 
 export default function FoodTable({ foods, categories }: any) {

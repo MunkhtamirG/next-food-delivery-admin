@@ -16,9 +16,7 @@ export default function Navbar() {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <LunchDiningIcon
-            sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
-          />
+          <LunchDiningIcon sx={{ display: { xs: "", md: "flex" }, mr: 1 }} />
           <Typography
             variant="h6"
             noWrap
@@ -26,7 +24,7 @@ export default function Navbar() {
             href="/"
             sx={{
               mr: 2,
-              display: { xs: "none", md: "flex" },
+              display: { xs: "", md: "flex" },
               fontFamily: "monospace",
               fontWeight: 700,
               letterSpacing: ".3rem",
@@ -40,7 +38,7 @@ export default function Navbar() {
           <Box
             sx={{
               flexGrow: 1,
-              display: { xs: "none", md: "flex" },
+              display: { xs: "flex", md: "flex" },
               justifyContent: "space-between",
             }}
           >
