@@ -51,23 +51,29 @@ export default function LoginPage({ setUser }) {
   function registerHandler(e) {
     e.preventDefault();
 
-    axios
-      .post("http://18.141.207.7:3002/users/register", {
-        firstName: e.target.firstName.value,
-        lastName: e.target.lastName.value,
-        email: e.target.email.value,
-        address: e.target.address.value,
-        phone: e.target.phone.value,
-        password: e.target.password.value,
-      })
-      .then((res) => {
-        if (res.status === 200) {
-          setOpenSuccess(true);
-          setTimeout(() => {
-            setRegister(false);
-          }, 1000);
-        }
-      });
+    if (e.target.password.value === e.target.password1.value) {
+      axios
+        .post("http://18.141.207.7:3002/users/register", {
+          firstName: e.target.firstName.value,
+          lastName: e.target.lastName.value,
+          email: e.target.email.value,
+          address: e.target.address.value,
+          phone: e.target.phone.value,
+          password: e.target.password.value,
+        })
+        .then((res) => {
+          if (res.status === 200) {
+            setOpenSuccess(true);
+            setTimeout(() => {
+              setRegister(false);
+            }, 1000);
+          }
+        });
+    } else {
+      setAlertMsg("Нууц үг таарахгүй байна!");
+    }
+
+    setOpen(true);
   }
 
   return (
@@ -232,6 +238,15 @@ export default function LoginPage({ setUser }) {
                 variant="standard"
                 color="success"
                 name="password"
+                focused
+                type="password"
+              />
+              <TextField
+                required
+                label="Password again"
+                variant="standard"
+                color="success"
+                name="password1"
                 focused
                 type="password"
               />

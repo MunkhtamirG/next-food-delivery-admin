@@ -17,8 +17,8 @@ export default function add() {
         phone: e.target.phone.value,
         password: e.target.password.value,
       });
+      router.push("/users");
     }
-    router.push("/users");
     setOpen(true);
   }
   const handleClose = (event, reason) => {
