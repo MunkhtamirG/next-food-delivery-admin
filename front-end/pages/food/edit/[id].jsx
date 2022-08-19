@@ -22,7 +22,7 @@ const style = {
   height: "100vh",
 };
 
-export default function id({ food, categories }) {
+export default function Id({ food, categories }) {
   const [open, setOpen] = React.useState(false);
   let router = useRouter();
   async function submitHandler(e) {

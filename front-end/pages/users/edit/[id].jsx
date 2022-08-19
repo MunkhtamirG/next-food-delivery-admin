@@ -22,7 +22,7 @@ const style = {
   height: "100%",
 };
 
-export default function id({ users, roles }) {
+export default function Id({ users, roles }) {
   const [open, setOpen] = React.useState(false);
   let router = useRouter();
   async function submitHandler(e) {

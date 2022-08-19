@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 import { useRouter } from "next/router";
 
-export default function add({ categories }) {
+export default function Add({ categories }) {
   const [open, setOpen] = React.useState(false);
   const router = useRouter();
   function submitHandler(e) {

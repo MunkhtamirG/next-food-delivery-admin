@@ -22,7 +22,7 @@ const style = {
   height: "100vh",
 };
 
-export default function id({ roles }) {
+export default function Id({ roles }) {
   const [open, setOpen] = React.useState(false);
   let router = useRouter();
   async function submitHandler(e) {

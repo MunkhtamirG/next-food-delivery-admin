@@ -3,7 +3,7 @@ import React from "react";
 import { useRouter } from "next/router";
 import { Button, Alert, TextField, Box, Stack, Snackbar } from "@mui/material";
 
-export default function id({ category }) {
+export default function Id({ category }) {
   const [open, setOpen] = React.useState(false);
   let router = useRouter();
 

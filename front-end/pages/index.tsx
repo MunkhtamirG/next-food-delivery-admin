@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import Link from "next/link";
 import styles from "../styles/Home.module.css";
 
 const Home: NextPage = () => {
@@ -16,18 +17,22 @@ const Home: NextPage = () => {
 
         <p className={styles.description}>
           Get started by editing <br />
-          <a className={styles.code} href="/category" style={{ margin: "5px" }}>
+          <Link
+            className={styles.code}
+            href="/category"
+            style={{ margin: "5px" }}
+          >
             Category
-          </a>
-          <a className={styles.code} href="/food" style={{ margin: "5px" }}>
+          </Link>
+          <Link className={styles.code} href="/food" style={{ margin: "5px" }}>
             Food
-          </a>
-          <a className={styles.code} href="/users" style={{ margin: "5px" }}>
+          </Link>
+          <Link className={styles.code} href="/users" style={{ margin: "5px" }}>
             Users
-          </a>
-          <a className={styles.code} href="/roles" style={{ margin: "5px" }}>
+          </Link>
+          <Link className={styles.code} href="/roles" style={{ margin: "5px" }}>
             Roles
-          </a>
+          </Link>
         </p>
       </main>
     </div>
