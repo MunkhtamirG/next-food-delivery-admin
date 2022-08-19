@@ -151,7 +151,7 @@ export default function FoodTable({ foods, categories }: any) {
                       variant="contained"
                       color="error"
                       onClick={() => {
-                        axios.delete("http://18.141.207.7:3002/food", {
+                        axios.delete("http://13.250.98.180:3002/food", {
                           data: food,
                         });
                         router.push("/food");

@@ -14,7 +14,7 @@ export default function category({ categories }: any) {
 }
 
 category.getInitialProps = async (ctx: any) => {
-  const res = await axios.get("http://18.141.207.7:3002/category");
+  const res = await axios.get("http://13.250.98.180:3002/category");
   const json = await res.data.data;
   return { categories: json };
 };

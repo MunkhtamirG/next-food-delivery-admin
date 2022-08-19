@@ -8,7 +8,7 @@ export default function add() {
   const router = useRouter();
   function submitHandler(e) {
     e.preventDefault();
-    axios.post("http://18.141.207.7:3002/category", {
+    axios.post("http://13.250.98.180:3002/category", {
       name: e.target.name.value,
       color: e.target.color.value,
     });

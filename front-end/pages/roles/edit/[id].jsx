@@ -27,7 +27,7 @@ export default function id({ roles }) {
   let router = useRouter();
   async function submitHandler(e) {
     e.preventDefault();
-    await axios.put("http://18.141.207.7:3002/roles", {
+    await axios.put("http://13.250.98.180:3002/roles", {
       id: e.target.id.value,
       role_name: e.target.role_name.value,
       role_description: e.target.role_description.value,
@@ -107,7 +107,7 @@ export default function id({ roles }) {
 }
 
 export async function getStaticPaths() {
-  const res = await axios.get(`http://18.141.207.7:3002/roles`);
+  const res = await axios.get(`http://13.250.98.180:3002/roles`);
   return {
     fallback: false,
     paths: res.data.data.map((role) => ({
@@ -119,7 +119,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const res = await axios.get(`http://18.141.207.7:3002/roles/${params.id}`);
+  const res = await axios.get(`http://13.250.98.180:3002/roles/${params.id}`);
 
   return {
     props: {

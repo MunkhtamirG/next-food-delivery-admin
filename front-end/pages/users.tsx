@@ -12,9 +12,9 @@ export default function users({ users, roles }: any) {
 }
 
 users.getInitialProps = async (ctx: any) => {
-  const resUsers = await axios.get("http://18.141.207.7:3002/users");
+  const resUsers = await axios.get("http://13.250.98.180:3002/users");
   const users = await resUsers.data.data;
-  const resRole = await axios.get("http://18.141.207.7:3002/roles");
+  const resRole = await axios.get("http://13.250.98.180:3002/roles");
   const roles = await resRole.data.data;
 
   return { users: users, roles: roles };

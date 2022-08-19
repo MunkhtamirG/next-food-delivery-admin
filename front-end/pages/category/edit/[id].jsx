@@ -9,7 +9,7 @@ export default function id({ category }) {
 
   function submitHandler(e) {
     e.preventDefault();
-    axios.put("http://18.141.207.7:3002/category", {
+    axios.put("http://13.250.98.180:3002/category", {
       name: e.target.name.value,
       color: e.target.color.value,
       _id: e.target.id.value,
@@ -97,7 +97,7 @@ export default function id({ category }) {
 }
 
 export async function getStaticPaths() {
-  const res = await axios.get(`http://18.141.207.7:3002/category`);
+  const res = await axios.get(`http://13.250.98.180:3002/category`);
   return {
     fallback: false,
     paths: res.data.data.map((category) => ({
@@ -109,7 +109,9 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const res = await axios.get(`http://18.141.207.7:3002/category/${params.id}`);
+  const res = await axios.get(
+    `http://13.250.98.180:3002/category/${params.id}`
+  );
   return {
     props: {
       category: res.data.data,

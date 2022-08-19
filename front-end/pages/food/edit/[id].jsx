@@ -27,7 +27,7 @@ export default function id({ food, categories }) {
   let router = useRouter();
   async function submitHandler(e) {
     e.preventDefault();
-    await axios.put("http://18.141.207.7:3002/food", {
+    await axios.put("http://13.250.98.180:3002/food", {
       discount: +e.target.discount.value,
       sales: +e.target.sales.value,
       food_id: +e.target.id.value,
@@ -186,7 +186,7 @@ export default function id({ food, categories }) {
 }
 
 export async function getStaticPaths() {
-  const res = await axios.get(`http://18.141.207.7:3002/food`);
+  const res = await axios.get(`http://13.250.98.180:3002/food`);
   return {
     fallback: false,
     paths: res.data.data.map((food) => ({
@@ -198,8 +198,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const res = await axios.get(`http://18.141.207.7:3002/food/${params.id}`);
-  const categories = await axios.get(`http://18.141.207.7:3002/category`);
+  const res = await axios.get(`http://13.250.98.180:3002/food/${params.id}`);
+  const categories = await axios.get(`http://13.250.98.180:3002/category`);
   return {
     props: {
       food: res.data.data,

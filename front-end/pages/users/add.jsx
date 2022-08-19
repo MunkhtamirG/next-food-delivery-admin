@@ -9,7 +9,7 @@ export default function add() {
   function submitHandler(e) {
     e.preventDefault();
     if (e.target.password.value === e.target.password1.value) {
-      axios.post("http://18.141.207.7:3002/users/register", {
+      axios.post("http://13.250.98.180:3002/users/register", {
         firstName: e.target.firstName.value,
         lastName: e.target.lastName.value,
         email: e.target.email.value,

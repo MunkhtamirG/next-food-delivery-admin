@@ -75,7 +75,7 @@ export default function CategoryTable({ categories }: any) {
                       variant="contained"
                       color="error"
                       onClick={() => {
-                        axios.delete("http://18.141.207.7:3002/category", {
+                        axios.delete("http://13.250.98.180:3002/category", {
                           data: category,
                         });
                         router.push("/category");

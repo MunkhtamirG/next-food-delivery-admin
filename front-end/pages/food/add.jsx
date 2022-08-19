@@ -18,7 +18,7 @@ export default function add({ categories }) {
   const router = useRouter();
   function submitHandler(e) {
     e.preventDefault();
-    axios.post("http://18.141.207.7:3002/food", {
+    axios.post("http://13.250.98.180:3002/food", {
       discount: +e.target.discount.value,
       sales: +e.target.sales.value,
       name: e.target.name.value,
@@ -172,7 +172,7 @@ export default function add({ categories }) {
 }
 
 export async function getStaticProps({ params }) {
-  const categories = await axios.get(`http://18.141.207.7:3002/category`);
+  const categories = await axios.get(`http://13.250.98.180:3002/category`);
   return {
     props: {
       categories: categories.data.data,
